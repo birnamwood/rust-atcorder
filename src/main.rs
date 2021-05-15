@@ -1,34 +1,27 @@
 use proconio::input;
-
+ 
 fn main() {
-    input! {
+    input!{
         n: usize,
-        a: [i32; n],
-        b: [i32; n],
+        st: [(String, i32); n],
     }
-    let mut x = 0;
-    let mut y = 0;
-    //aの最大値
-    for i in a.iter() {
-        if x < *i {
-            x = *i;
+    let mut a = vec![0;n];
+    let mut b = vec![0;n];
+    for (s, t) in st {
+        if t != 0 {
+            a.push(s);
+            b.push(t);
         }
     }
-    //bの最小値
-    for j in b.iter() {
-        if y == 0 {
-            y = *j;
+    a.sort();
+    let ln = a.len() -2;
+    // println!("{:?}", a[ln]);
+
+    for i in b {
+        if b[i] == a[ln] {
+            println!("{}", a[i]);
+            break;
         }
-        if y > *j {
-            y = *j;
-        }
-    }
-    // println!("{}", x);
-    // println!("{}", y);
-    if y -x + 1 <= 0 {
-        println!("{}", 0);
-    } else {
-        println!("{}", y - x + 1);
     }
 
 }
