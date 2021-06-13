@@ -2,12 +2,14 @@ use proconio::input;
  
 fn main() {
     input!{
-        a: i64,
-        b: i64,
-        k: i64,
+        n: usize,
+        mut a: [i32; n],
     }
-    let mut b: String ="".to_string();
-    for a {
-    }
-     println!("{}", a;
+    let mut c = a.dedup();
+    println!("{:?}", c);
+
+    // for i in c.iter() {
+    //     // ソートして1こずつ見る
+    //     println!("{}", i)
+    // }
 }
