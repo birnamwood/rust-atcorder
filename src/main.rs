@@ -2,25 +2,25 @@ use proconio::input;
 
 fn main() {
     input!{
-        n: usize,
-        //a: [[i32; 2]; n],
+        k: i64,
+        a: i64,
+        b: i64,
     }
-    let mut cnt = n;
-    let mut flg = false;
-    // nが奇数であればn -1
-    if n % 2 == 1 {
-        flg = true;
-        cnt = cnt - 1;
-    }
-    cnt = cnt / 2;
+    let ans:i64 = change(k, a) * change(k, b);
 
-    for i in 0..cnt {
-        for j in 0..cnt {
-            if i == j {
-                return;
-            }
-            println!("{}", i);
-        }
-    }
+    println!("{}", ans);
+}
 
+// x n進数
+fn change(mut a: i64,x: i64)->i64{
+    let mut amari: Vec<i64> = Vec::new();
+    while x != 0{
+        amari.push(x % a);
+        x /= a;
+    }
+    let mut n:i64 = 0;
+    for i in 0..amari.len(){
+         n += 10i64.pow(i as u32)*amari[i]
+    }
+    return n;
 }
