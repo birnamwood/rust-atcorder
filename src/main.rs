@@ -2,22 +2,27 @@ use proconio::input;
 
 fn main() {
     input! {
-        n: usize,
-        pp: [[String;2]; n],
+        x: i32,
+        y: i32,
     }
-    let mut total = 0;
+    let mut total:i32 = 0;
 
-    for p in pp.iter() {
-        let num: i32 = p[1].parse().unwrap();
-        total = total + num 
-    }
-    for p in pp.iter() {
-        let num: i32 = p[1].parse().unwrap();
-        if num * 2 > total {
-            println!("{}", p[0]);
-            return;
-        }
-    }
+    total += add(x);
+    total += add(y);
 
-    println!("{}", "atcorder");
+    if x == 1 && y == 1 {
+        total +=400000;
+    }
+    println!("{}", total);
+}
+
+fn add(target:i32)-> i32 {
+    if target == 1 {
+        return 300000;
+    } else if target == 2 {
+        return  200000;
+    } else if target == 3 {
+        return 100000;
+    }
+    return 0
 }
